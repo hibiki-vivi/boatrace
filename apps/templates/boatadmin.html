@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>管理者ページ</title>
+    </head>
+    <body>
+        <h1>管理者ページ</h1>
+        <div class="parent">
+            <div class="child">
+                <p>番組表</p>
+                <select>
+                    <option value ="1">ダミー番組表1</option>
+                    <option value="2">ダミー番組表2</option>
+                </select>
+            </div>
+            <div class="child">
+                <p>成績表</p>
+                <select>
+                    <option value ="1">ダミー成績表1</option>
+                    <option value="2">ダミー成績表2</option>
+                </select>
+            </div>
+        <br>
+        </div>
+        <div id = "btn_submit">
+        <input type="submit" value="学習する">
+        </div>
+        <div id = "link_back"><a href="digicon_moc.html">戻る</a></div>
+    </body>
+</html>
+<style>
+    body{
+        background-color: black;
+        color: #00ffff;
+    }
+h1,p{
+        text-align: center;
+    }
+.parent{
+    display: flex;
+    justify-content: center;
+}
+.child{
+    text-align: center;
+    padding: 15px;
+}    
+#btn_submit{
+    text-align: center;
+    margin-top: 15px;
+}
+#link_back{
+    text-align: right;
+    margin-right: 200px;
+}
+</style>

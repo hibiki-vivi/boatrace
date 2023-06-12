@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Main.css') }}" />
+        <title>デジタルコンテンツ特論_課題ページ</title>
+    </head>
+    <body>
+    <h1>競艇順位予測システム</h1>
+    <p id = "date">今日は<span id = "year"></span>年<span id ="month"></span>月<span id ="day"></span>日です</p>
+
+<div class="parent">
+    <div class = "location">
+      <p class ="location">会場</p>
+        <select class ="location">
+          <option value ="1">ダミー会場１</option>
+          <option value="2">ダミー会場2</option>
+      </select>
+    </div>
+    <div class ="race">
+      <p class ="race">レース</p>
+        <select class="race">
+          <option value="1">ダミーレース1</option>
+          <option value="2">ダミーレース2</option>
+        </select>
+    </div>
+</div>
+<br>
+<br>
+    <table border="1">
+        <tbody>
+          <tr>
+            <td>順位</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>艇番</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+        </table>
+        <br>
+    <p id="predictbtn"><input type="button" value="予測する"></p>
+    <div id="adminpage_link"><a onclick="disp()">管理者ページ</a></div>
+    <script type="text/javascript" src="{{ url_for('static', filename='Main.js') }}"></script>
+    </body>
+</html>

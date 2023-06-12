@@ -1,0 +1,40 @@
+body{
+    background-color: #000000;
+    color: #00ffff;
+}
+h1{
+    text-align: center;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+#predictbtn{
+    text-align: center;
+}
+
+#adminpage_link{
+    text-align: right;
+    margin-right: 200px;
+}
+
+#date{
+    text-align: center;
+}
+
+.parent{
+    display: flex;
+    justify-content: center;
+}
+
+.location{
+    text-align: center;
+    margin-right: 15px;
+}
+.race{
+    text-align: center;
+    margin-left: 15px;
+}
