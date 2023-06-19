@@ -19,26 +19,13 @@ function showyear(){
   return year;
 }
 
-function disp(){
+var predictButton = document.querySelector('input[type="submit"]');
+var selectedLocation = document.getElementById('selectedLocation');
+var selectedRace = document.getElementById('selectedRace');
 
-	// 入力ダイアログを表示 ＋ 入力内容を user に代入
-	user = window.prompt("パスワードを入力してください", "");
-
-  if( /\W+/g.test(user) ) {
-    // ▼半角英数字以外の文字が存在したらエラー
-    alert("半角英数字のみを入力して下さい。");
-  }
-	// 入力内容をチェック
-  else if(user != "" && user != null){
-
-		location.href = user + ".html"
-
-  }
-	// 空の場合やキャンセルした場合は警告ダイアログを表示
-	else{
-
-		window.alert('キャンセルされました');
-
-	}
-
-}
+predictButton.addEventListener('click', function() {
+  var location = document.querySelector('.location select').value;
+  var race = document.querySelector('.race select').value;
+  selectedLocation.value = location;
+  selectedRace.value = race;
+});

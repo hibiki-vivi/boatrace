@@ -6,3 +6,8 @@ basedir = os.path.dirname(os.path.dirname(__file__))
 SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, 'blog.sqlite')
 
 # シークレットキーの値として10バイトの文字列をランダムに生成
+SECRET_KEY = os.urandom(10)
+
+# 管理者のユーザ名とパスワード
+USERNAME = 'admin'
+PASSWORD = 'pass'

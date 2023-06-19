@@ -9,49 +9,63 @@
     <h1>競艇順位予測システム</h1>
     <p id = "date">今日は<span id = "year"></span>年<span id ="month"></span>月<span id ="day"></span>日です</p>
 
-<div class="parent">
-    <div class = "location">
-      <p class ="location">会場</p>
-        <select class ="location">
-          <option value ="1">ダミー会場１</option>
-          <option value="2">ダミー会場2</option>
-      </select>
-    </div>
-    <div class ="race">
-      <p class ="race">レース</p>
-        <select class="race">
-          <option value="1">ダミーレース1</option>
-          <option value="2">ダミーレース2</option>
+<form action="/predict" method="POST">
+  <div class="parent">
+      <div class = "location">
+        <p class ="location">会場</p>
+          <select class ="location" name="location">
+            {% for location in locations %}
+            <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
         </select>
-    </div>
-</div>
-<br>
-<br>
+      </div>
+      <div class ="race">
+        <p class ="race">レース</p>
+          <select class="race" name="race">
+            {% for race in races %}
+            <option value="{{ race }}">{{ race }}</option>
+            {% endfor %}
+          </select>
+      </div>
+  </div>
+  <br>
+  <br>
+  <input type="hidden" name="location" id="selectedLocation">
+  <input type="hidden" name="race" id="selectedRace">
+  <p id="predictbtn">
+    <input type="submit" value="予測する">
+  </p>
+</form>
+  {% if race_conditions != None %}
+  <br>
+  <span style="text-align: center;"><p>予測結果 会場: {{ race_conditions[0] }}, レース: {{ race_conditions[1] }}</p></span>
     <table border="1">
-        <tbody>
-          <tr>
-            <td>順位</td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-          </tr>
-          <tr>
-            <td>艇番</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-        </table>
-        <br>
-    <p id="predictbtn"><input type="button" value="予測する"></p>
-    <div id="adminpage_link"><a onclick="disp()">管理者ページ</a></div>
+      <tbody>
+        <tr>
+          <td>順位</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>艇番</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[0] }}{% endif %}</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[1] }}{% endif %}</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[2] }}{% endif %}</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[3] }}{% endif %}</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[4] }}{% endif %}</td>
+          <td>{% if boat_numbers != None %}{{ boat_numbers[5] }}{% endif %}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+    <br>
+    <!-- <p id="predictbtn">
+      <input type="submit" value="予測する">
+    </p> -->
     <script type="text/javascript" src="{{ url_for('static', filename='Main.js') }}"></script>
     </body>
 </html>
